@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User List</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h1>User List</h1>
+    <a href="/create">Create New User</a>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        <% users.forEach(user=> { %>
+            <tr>
+                <td>
+                    <%= user.username %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.phone %>
+                </td>
+                <td>
+                    <%= user.account_status %>
+                </td>
+                <td>
+                    <a href="/edit/<%= user.user_id %>">Edit</a>
+                    <form action="/delete/<%= user.user_id %>" method="POST" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }); %>
+    </table>
+</body>
+
+</html>

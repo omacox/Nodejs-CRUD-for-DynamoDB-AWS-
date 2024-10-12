@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit User</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h1>Edit User</h1>
+    <form action="/edit/<%= user.user_id %>" method="POST">
+        <input type="text" name="username" value="<%= user.username %>" required>
+        <input type="email" name="email" value="<%= user.email %>" required>
+        <input type="tel" name="phone" value="<%= user.phone %>">
+        <select name="account_status">
+            <option value="A" <%=user.account_status==='A' ? 'selected' : '' %>>Active</option>
+            <option value="I" <%=user.account_status==='I' ? 'selected' : '' %>>Inactive</option>
+        </select>
+        <button type="submit">Update</button>
+    </form>
+    <a href="/">Back to List</a>
+</body>
+
+</html>
